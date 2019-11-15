@@ -37,7 +37,7 @@ let realm = try! Realm()
                 newPoroda.name = arrayName[i]
                 newPoroda.image = arrayImg[i]
                 try! realm.write {
-                    realm.add(newPoroda, update: true)
+                    realm.add(newPoroda)
                 }
             }
 //            flag = false
