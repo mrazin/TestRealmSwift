@@ -20,28 +20,28 @@ let realm = try! Realm()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if let idU: Int = UserDefaults.standard.integer(forKey: "id") {
-            id = idU
-        }
-    
-        if let fl: Bool = UserDefaults.standard.bool(forKey: "flagApp") {
-                   flag = fl
-               }
-        
+//        if let idU: Int = UserDefaults.standard.integer(forKey: "id") {
+//            id = idU
+//        }
+//      print(flag)
+//        if let flagUserD: Bool = UserDefaults.standard.bool(forKey: "flagAppDel") {
+//                   flag = flagUserD
+//               }
+  
 //        if flag == true {
             for i in 0..<arrayImg.count {
                 let newPoroda = Poroda()
                 newPoroda.id = String(id)
                 id += 1
-                UserDefaults.standard.set(id, forKey: "id")
+//                UserDefaults.standard.set(id, forKey: "id")
                 newPoroda.name = arrayName[i]
                 newPoroda.image = arrayImg[i]
                 try! realm.write {
-                    realm.add(newPoroda)
+                    realm.add(newPoroda, update: true)
                 }
             }
 //            flag = false
-//            UserDefaults.standard.set(flag, forKey: "flag")
+            UserDefaults.standard.set(flag, forKey: "flagAppDel")
 //        } else {
 //            print("LOOOOL")
 //        }
